@@ -89,7 +89,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_complaint'])) 
             <a href="#about">About</a>
             <a href="#book-cleaning">Book Room Cleaning</a>
             <a href="#file-complaint">File Complaint</a>
-            <a href="logout.php">Logout</a>
+            <a href="logout.php" class="logout-link">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
         </nav>
     </header>
 
@@ -105,6 +107,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_complaint'])) 
         <div>
             <h2>Welcome, <?php echo htmlspecialchars($_SESSION['name']); ?>!</h2>
             <p>Manage your room cleaning and complaints easily.</p>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Us</h2>
+                    <p>Welcome to Hostel Buddy, your all-in-one solution for hostel management. We aim to provide a seamless and efficient experience for both students and staff. Our platform simplifies tasks such as room cleaning bookings and complaint filing, ensuring a comfortable living environment for all residents.</p>
+                    <p>Our mission is to enhance student living by providing tools that promote cleanliness, efficiency, and communication within the hostel community.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/400" alt="About Us Image">
+                </div>
+            </div>
         </div>
     </section>
 

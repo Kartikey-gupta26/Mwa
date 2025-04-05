@@ -2,7 +2,7 @@
 $host = 'localhost';
 $dbname = 'hostel_management';
 $username = 'root';
-$password = '1234';  // Default XAMPP password is empty
+$password = '';  // Default XAMPP password is empty
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
