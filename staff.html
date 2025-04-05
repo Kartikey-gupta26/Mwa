@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard - Hostel Buddy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Inconsolata:wght@200..900&family=Lugrasimo&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="staff.css">
+</head>
+<body>
+    <header>
+        <h1>Hostel Buddy - Staff Dashboard</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#cleaning-requests">Cleaning Requests</a>
+            <a href="#complaint-requests">Complaint Requests</a>
+            <a href="#">Logout</a>
+        </nav>
+    </header>
+
+    <section id="cleaning-requests" class="cleaning-requests">
+        <div class="container">
+            <h2>Room Cleaning Requests</h2>
+            <div class="request-grid">
+                <!-- Room Cleaning Request Cards -->
+                <div class="request-card">
+                    <h3>Room 101</h3>
+                    <p>Requested on: 2023-10-25 at 10:00 AM</p>
+                    <label>
+                        <input type="checkbox" id="cleaned-101">
+                        Mark as Cleaned
+                    </label>
+                </div>
+                <div class="request-card">
+                    <h3>Room 202</h3>
+                    <p>Requested on: 2023-10-25 at 11:30 AM</p>
+                    <label>
+                        <input type="checkbox" id="cleaned-202">
+                        Mark as Cleaned
+                    </label>
+                </div>
+                <div class="request-card">
+                    <h3>Room 303</h3>
+                    <p>Requested on: 2023-10-25 at 12:45 PM</p>
+                    <label>
+                        <input type="checkbox" id="cleaned-303">
+                        Mark as Cleaned
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="complaint-requests" class="complaint-requests">
+        <div class="container">
+            <h2>Complaint Requests</h2>
+            <div class="request-grid">
+                <!-- Complaint Request Cards -->
+                <div class="request-card">
+                    <h3>Room 101</h3>
+                    <p>Complaint: Broken Window</p>
+                    <p>Submitted on: 2023-10-25 at 09:00 AM</p>
+                    <label>
+                        <input type="checkbox" id="resolved-101">
+                        Mark as Resolved
+                    </label>
+                </div>
+                <div class="request-card">
+                    <h3>Room 202</h3>
+                    <p>Complaint: Leaking Pipe</p>
+                    <p>Submitted on: 2023-10-25 at 10:15 AM</p>
+                    <label>
+                        <input type="checkbox" id="resolved-202">
+                        Mark as Resolved
+                    </label>
+                </div>
+                <div class="request-card">
+                    <h3>Room 303</h3>
+                    <p>Complaint: No Hot Water</p>
+                    <p>Submitted on: 2023-10-25 at 11:00 AM</p>
+                    <label>
+                        <input type="checkbox" id="resolved-303">
+                        Mark as Resolved
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Contact us: info@hostelmanagement.com | +123 456 7890</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.x.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+
+</body>
+</html>

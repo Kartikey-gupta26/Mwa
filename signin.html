@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Inconsolata:wght@200..900&family=Jersey+25&family=Lugrasimo&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="signin.css">
+</head>
+<body class="flex-center">
+    <main class="form-container">
+        <form class="signin-form" id="signin-form">
+            <h1 class="form-title">Sign in</h1>
+
+            <div class="form-group">
+                <input type="email" id="email" class="form-input" placeholder="name@example.com" required>
+                <small class="error-message" id="email-error"></small>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" class="form-input" placeholder="Password" required>
+                <small class="error-message" id="password-error"></small>
+            </div>
+
+            <div class="form-check">
+                <input type="checkbox" id="remember-me" class="form-checkbox">
+                <label for="remember-me">Remember me</label>
+            </div>
+
+            <div class="signin-button">
+                <button type="button" id="student-signin" class="submit-button">Student Sign in</button>
+                <br><br>
+                <button type="button" id="staff-signin" class="submit-button">Staff Sign in</button>
+            </div>
+
+            <p class="form-footer">© 2017-2024</p>
+        </form>
+    </main>
+
+    <script src="signin.js"></script>
+</body>
+</html>

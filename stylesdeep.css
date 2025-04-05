@@ -1,0 +1,268 @@
+/* General Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333; /* Original text color */
+    background-color: #f9f9f9; /* Original light background */
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: white; /* Blue hover color */
+    transition: width 0.3s ease;
+}
+
+/* Header */
+header {
+    height: 3rem;
+    background: #007BFF; /* Original blue header */
+     /* Light text color */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    font-family: 'honk';
+    margin: 0;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+nav a {
+    margin: 0 15px;
+    font-weight: 500;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #ffdd57; /* Yellow underline */
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    /* background: url('https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm0yMjJiYXRjaDQtbWluZC0wM18xXzIuanBn.jpg') no-repeat center center/cover; */
+    /* background: url('https://as2.ftcdn.net/jpg/07/45/81/03/1000_F_745810340_DXy16ZxFW4c26bHCXZ7i4Ww5fWBTqEmn.jpg') no-repeat center center/cover; */
+    position: relative;
+    height: 88vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: black; /* Original text color */
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5); /* Light overlay for better text visibility */
+}
+
+.hero h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 64px;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 1.5s ease-in-out;
+    font-weight: 100;
+}
+
+.hero p {
+    font-size: 20px;
+    margin: 20px 0;
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 2.5s ease-in-out;
+}
+
+.hero .buttons button {
+    font-family: 'Montserrat';
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #007BFF;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.hero .buttons button:hover {
+    background: #0056b3;
+    transform: translateY(-5px);
+}
+
+/* Features Section */
+.features {
+    padding: 80px 20px;
+    background: #f9f9f9; /* Original light background */
+    text-align: center;
+    padding-top: 0;
+}
+
+.features h3 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #333; /* Original text color */
+    animation: fadeIn 1s ease-in-out;
+}
+
+.features-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.feature {
+    background: white; /* Original white background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0; /* Start with the feature hidden */
+    transform: translateY(20px); /* Start slightly below */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.feature.visible {
+    opacity: 1; /* Make the feature visible */
+    transform: translateY(0); /* Move to its original position */
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.feature i {
+    font-size: 40px;
+    color: #007BFF; /* Original blue icon color */
+    margin-bottom: 20px;
+}
+
+.feature h4 {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #333; /* Original text color */
+}
+
+.feature p {
+    font-size: 16px;
+    color: #666; /* Original lighter text color */
+}
+
+/* Footer */
+footer {
+    background: #007BFF; /* Original blue footer */
+    color: white; /* Light text color */
+    padding: 20px 20px;
+    text-align: center;
+}
+
+footer .social-icons {
+    margin: 20px 0;
+}
+
+footer .social-icons a {
+    color: white; /* Light text color */
+    margin: 0 15px;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: #ffdd57; /* Yellow hover color */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .features-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        width: 90%;
+    }
+
+    footer .social-icons a {
+        margin: 0 10px;
+        font-size: 20px;
+    }
+}

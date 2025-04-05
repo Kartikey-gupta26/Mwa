@@ -1,0 +1,287 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* General Styles */
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #0f1020;
+  background-color: #efc3f5;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #faa6ff;
+}
+
+/* Header */
+header {
+  height: 3rem;
+  background: #7353ba;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  color: white;
+}
+
+header h1 {
+  font-family: 'Honk';
+  margin: 0;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+nav a {
+  margin: 0 15px;
+  font-weight: 500;
+  position: relative;
+  color: white;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #faa6ff; 
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 88vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #0f1020; 
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7); 
+}
+
+.hero h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 64px;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 1.5s ease-in-out;
+  font-weight: 100;
+}
+
+.hero p {
+  font-size: 20px;
+  margin: 20px 0;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.hero .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 2.5s ease-in-out;
+}
+
+.hero .buttons button {
+  font-family: 'Montserrat';
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #7353ba;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: medium;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.3s ease;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.hero .buttons button:hover {
+  background: #2f195f; 
+  transform: translateY(-5px);
+}
+
+/* About Section */
+.about, .book-cleaning, .file-complaint {
+  padding: 80px 20px;
+  background: #efc3f5;
+}
+
+.about .container, .book-cleaning .container, .file-complaint .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-content, .cleaning-content, .complaint-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-text, .cleaning-text, .complaint-text {
+  flex: 1;
+}
+
+.about-image, .cleaning-image, .complaint-image {
+  flex: 1;
+  text-align: center;
+}
+
+.about-image img, .cleaning-image img, .complaint-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.about h2, .book-cleaning h2, .file-complaint h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #0f1020;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.about p, .book-cleaning p, .file-complaint p {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* Book Room Cleaning Section */
+.cleaning-form, .complaint-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.cleaning-form label, .complaint-form label {
+  margin-bottom: 5px;
+  text-align: left;
+  width: 100%;
+  max-width: 300px;
+}
+
+.cleaning-form input, .cleaning-form button, .complaint-form input, .complaint-form textarea, .complaint-form button {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.cleaning-form button, .complaint-form button {
+  background: #7353ba; 
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cleaning-form button:hover, .complaint-form button:hover {
+  background: #2f195f;
+}
+#room-number::placeholder{
+ color: #0f1020;
+}
+
+/* File Complaint Section */
+.complaint-form textarea {
+  resize: vertical;
+}
+
+/* Footer */
+footer {
+  background: #7353ba; 
+  color: white;
+  padding: 20px 20px;
+  text-align: center;
+}
+
+footer .social-icons {
+  margin: 20px 0;
+}
+
+footer .social-icons a {
+  color: white;
+  margin: 0 15px;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+  color: #faa6ff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero h2 {
+      font-size: 36px;
+  }
+
+  .hero p {
+      font-size: 18px;
+  }
+
+  .about-content, .cleaning-content, .complaint-content {
+      flex-direction: column;
+  }
+
+  .about-image, .cleaning-image, .complaint-image {
+      order: -1;
+  }
+
+  footer .social-icons a {
+      margin: 0 10px;
+      font-size: 20px;
+  }
+}

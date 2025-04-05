@@ -1,0 +1,7 @@
+This website is to solve students facing issues in hostel
+Website will have two users students and staffs both will have different login page at start.
+Main focus is on room cleaning appointment booking system in which a user can book a room cleaning appointment.
+Request can be raised from student side and cards of requests will be available on the staff side.
+It will be like a todo list for staff.
+Complaint system.
+Laundry 
