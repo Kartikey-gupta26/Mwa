@@ -244,7 +244,7 @@ footer .social-icons a:hover {
 }
 
 .logout-link {
-    color: #dc3545;
+    color: #ffffff;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -252,7 +252,7 @@ footer .social-icons a:hover {
 }
 
 .logout-link:hover {
-    color: #c82333;
+    color: #ffffff;
 }
 
 .logout-link i {
