@@ -31,8 +31,14 @@
       <h2>Easily Manage Your Hostel </h2>
       <p>Students can book room cleaning, and staff can manage requests seamlessly.</p>
       <div class="buttons">
-            <button><img src="/resources/student-cap-svgrepo-com.svg" height="30" alt=""> <a href="signin.html">Student Login</a></button>
-            <button> <img src="/resources/woman-sweeping-svgrepo-com.svg" height="30" alt="" srcset=""><a href="signin.html">Staff Login</a></button>
+        <div class="button-group">
+          <button class="login-btn"><img src="/resources/student-cap-svgrepo-com.svg" height="30" alt=""> <a href="signin.php">Student Login</a></button>
+          <button class="register-btn"><a href="register.php?type=student">Student Register</a></button>
+        </div>
+        <div class="button-group">
+          <button class="login-btn"><img src="/resources/woman-sweeping-svgrepo-com.svg" height="30" alt=""><a href="signin.php">Staff Login</a></button>
+          <button class="register-btn"><a href="register.php?type=staff">Staff Register</a></button>
+        </div>
       </div>
     </div>
   </section>
@@ -71,7 +77,6 @@
   </footer>
 
   <!-- JavaScript for Scroll Animations -->
-  <script src="script.js">
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

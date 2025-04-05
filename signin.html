@@ -11,15 +11,19 @@
 </head>
 <body class="flex-center">
     <main class="form-container">
-        <form class="signin-form" id="signin-form">
+        <form class="signin-form" id="signin-form" action="login.php" method="POST">
             <h1 class="form-title">Sign in</h1>
 
+            <?php if (isset($error)): ?>
+                <div class="error-message"><?php echo $error; ?></div>
+            <?php endif; ?>
+
             <div class="form-group">
-                <input type="email" id="email" class="form-input" placeholder="name@example.com" required>
+                <input type="email" id="email" name="email" class="form-input" placeholder="name@example.com" required>
                 <small class="error-message" id="email-error"></small>
             </div>
             <div class="form-group">
-                <input type="password" id="password" class="form-input" placeholder="Password" required>
+                <input type="password" id="password" name="password" class="form-input" placeholder="Password" required>
                 <small class="error-message" id="password-error"></small>
             </div>
 
@@ -29,9 +33,9 @@
             </div>
 
             <div class="signin-button">
-                <button type="button" id="student-signin" class="submit-button">Student Sign in</button>
+                <button type="submit" name="user_type" value="student" class="submit-button">Student Sign in</button>
                 <br><br>
-                <button type="button" id="staff-signin" class="submit-button">Staff Sign in</button>
+                <button type="submit" name="user_type" value="staff" class="submit-button">Staff Sign in</button>
             </div>
 
             <p class="form-footer">© 2017-2024</p>
