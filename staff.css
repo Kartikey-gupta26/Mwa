@@ -267,16 +267,15 @@ footer .social-icons a:hover {
     }
 }
 
-.logout-link {
+.logout-link{
     color: #dc3545;
-    /* display: flex; */
     align-items: center;
     gap: 8px;
     transition: color 0.2s;
 }
 
 .logout-link:hover {
-    color: #c82333;
+    color: #ffffff;
 }
 
 .logout-link i {

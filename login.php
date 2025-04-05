@@ -29,12 +29,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             exit();
         } else {
-            $error = "Invalid email or password";
-            require_once 'signin.php';
+            // Set error message in session
+            if (!$user) {
+                $_SESSION['error'] = "No account found with this email address.";
+            } else {
+                $_SESSION['error'] = "Incorrect password. Please try again.";
+            }
+            header("Location: signin.php");
+            exit();
         }
     } catch(PDOException $e) {
-        $error = "Database error: " . $e->getMessage();
-        require_once 'signin.php';
+        $_SESSION['error'] = "Database error: " . $e->getMessage();
+        header("Location: signin.php");
+        exit();
     }
 } else {
     // If not a POST request, redirect to signin page

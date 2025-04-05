@@ -272,14 +272,25 @@ footer .social-icons a:hover {
 .buttons {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     margin-top: 2rem;
+    align-items: center;
 }
 
 .button-group {
     display: flex;
     gap: 1rem;
     justify-content: center;
+    width: 100%;
+}
+
+.button-group:first-child {
+    margin-bottom: 0.5rem;
+}
+
+.button-group:last-child {
+    display: flex;
+    gap: 1.5rem;
 }
 
 .login-btn, .register-btn {
@@ -292,25 +303,27 @@ footer .social-icons a:hover {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    min-width: 200px;
+    justify-content: center;
 }
 
 .login-btn {
-    background-color: #4CAF50;
+    background-color: #7353ba;
     color: white;
 }
 
 .register-btn {
-    background-color: #2196F3;
+    background-color: #2f195f;
     color: white;
 }
 
 .login-btn:hover {
-    background-color: #45a049;
+    background-color: #2f195f;
     transform: translateY(-2px);
 }
 
 .register-btn:hover {
-    background-color: #1976D2;
+    background-color: #7353ba;
     transform: translateY(-2px);
 }
 
