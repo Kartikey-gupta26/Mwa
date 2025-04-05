@@ -64,6 +64,30 @@ nav a {
     color: var(--white);
 }
 
+.view-toggle {
+    display: inline-flex;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 4px;
+    margin: 0 15px;
+}
+
+.view-toggle a {
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+.view-toggle a.active {
+    background: var(--white);
+    color: var(--royal-purple);
+}
+
+.view-toggle a:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.2);
+}
+
 nav a::after {
     content: '';
     position: absolute;
@@ -243,9 +267,8 @@ footer .social-icons a:hover {
     }
 }
 
-.logout-link {
-    color: #ffffff;
-    display: flex;
+.logout-link{
+    color: #dc3545;
     align-items: center;
     gap: 8px;
     transition: color 0.2s;

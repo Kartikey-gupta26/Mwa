@@ -11,6 +11,9 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'staff') {
 $success_message = '';
 $error_message = '';
 
+// Get the current view (pending or completed)
+$view = isset($_GET['view']) ? $_GET['view'] : 'pending';
+
 // Handle marking cleaning request as completed
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mark_cleaned'])) {
     $request_id = $_POST['request_id'];
@@ -29,13 +32,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mark_cleaned'])) {
     }
 }
 
-// Get all pending cleaning requests with student details
+// Get cleaning requests based on view
 try {
+    $status_condition = $view === 'pending' ? "cr.status = 'pending'" : "cr.status = 'completed'";
     $stmt = $pdo->prepare("
-        SELECT cr.*, s.name as student_name, s.room_number
+        SELECT cr.*, s.name as student_name, s.room_number, st.name as staff_name
         FROM cleaning_requests cr 
         JOIN students s ON cr.student_id = s.id 
-        WHERE cr.status = 'pending' 
+        LEFT JOIN staff st ON cr.staff_id = st.id
+        WHERE $status_condition 
         ORDER BY cr.created_at DESC
     ");
     $stmt->execute();
@@ -63,13 +68,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mark_resolved'])) {
     }
 }
 
-// Get all pending complaint requests with student details
+// Get complaint requests based on view
 try {
+    $status_condition = $view === 'pending' ? "cr.status = 'pending'" : "cr.status = 'resolved'";
     $stmt = $pdo->prepare("
-        SELECT cr.*, s.name as student_name, s.room_number
+        SELECT cr.*, s.name as student_name, s.room_number, st.name as staff_name
         FROM complaint_requests cr 
         JOIN students s ON cr.student_id = s.id 
-        WHERE cr.status = 'pending' 
+        LEFT JOIN staff st ON cr.staff_id = st.id
+        WHERE $status_condition 
         ORDER BY cr.created_at DESC
     ");
     $stmt->execute();
@@ -96,9 +103,12 @@ try {
     <header>
         <h1>Hostel Buddy - Staff Dashboard</h1>
         <nav>
-            <a href="#">Home</a>
             <a href="#cleaning-requests">Cleaning Requests</a>
             <a href="#complaint-requests">Complaint Requests</a>
+            <div class="view-toggle">
+                <a href="?view=pending" class="<?php echo $view === 'pending' ? 'active' : ''; ?>">Pending</a>
+                <a href="?view=completed" class="<?php echo $view === 'completed' ? 'active' : ''; ?>">Completed</a>
+            </div>
             <a href="logout.php" class="logout-link">
                 <i class="fas fa-sign-out-alt"></i> Logout
             </a>
@@ -118,20 +128,25 @@ try {
             <h2>Room Cleaning Requests</h2>
             <div class="request-grid">
                 <?php if (empty($cleaning_requests)): ?>
-                    <p class="no-requests">No pending cleaning requests.</p>
+                    <p class="no-requests">No <?php echo $view; ?> cleaning requests.</p>
                 <?php else: ?>
                     <?php foreach ($cleaning_requests as $request): ?>
                         <div class="request-card">
                             <h3>Room <?php echo htmlspecialchars($request['room_number']); ?></h3>
                             <p>Requested by: <?php echo htmlspecialchars($request['student_name']); ?></p>
                             <p>Requested on: <?php echo date('Y-m-d H:i', strtotime($request['created_at'])); ?></p>
-                            <p>Status: <span class="status-pending">Pending</span></p>
-                            <form method="POST" class="mark-completed-form">
-                                <input type="hidden" name="request_id" value="<?php echo $request['id']; ?>">
-                                <button type="submit" name="mark_cleaned" class="complete-btn">
-                                    <i class="fas fa-check"></i> Mark as Completed
-                                </button>
-                            </form>
+                            <?php if ($view === 'completed'): ?>
+                                <p>Completed by: <?php echo htmlspecialchars($request['staff_name']); ?></p>
+                                <p>Completed on: <?php echo date('Y-m-d H:i', strtotime($request['updated_at'])); ?></p>
+                            <?php else: ?>
+                                <p>Status: <span class="status-pending">Pending</span></p>
+                                <form method="POST" class="mark-completed-form">
+                                    <input type="hidden" name="request_id" value="<?php echo $request['id']; ?>">
+                                    <button type="submit" name="mark_cleaned" class="complete-btn">
+                                        <i class="fas fa-check"></i> Mark as Completed
+                                    </button>
+                                </form>
+                            <?php endif; ?>
                         </div>
                     <?php endforeach; ?>
                 <?php endif; ?>
@@ -144,7 +159,7 @@ try {
             <h2>Complaint Requests</h2>
             <div class="request-grid">
                 <?php if (empty($complaint_requests)): ?>
-                    <p class="no-requests">No pending complaint requests.</p>
+                    <p class="no-requests">No <?php echo $view; ?> complaint requests.</p>
                 <?php else: ?>
                     <?php foreach ($complaint_requests as $request): ?>
                         <div class="request-card">
@@ -152,13 +167,18 @@ try {
                             <p>Requested by: <?php echo htmlspecialchars($request['student_name']); ?></p>
                             <p>Description: <?php echo htmlspecialchars($request['description']); ?></p>
                             <p>Submitted on: <?php echo date('Y-m-d H:i', strtotime($request['created_at'])); ?></p>
-                            <p>Status: <span class="status-pending">Pending</span></p>
-                            <form method="POST" class="mark-resolved-form">
-                                <input type="hidden" name="request_id" value="<?php echo $request['id']; ?>">
-                                <button type="submit" name="mark_resolved" class="resolve-btn">
-                                    <i class="fas fa-check"></i> Mark as Resolved
-                                </button>
-                            </form>
+                            <?php if ($view === 'completed'): ?>
+                                <p>Resolved by: <?php echo htmlspecialchars($request['staff_name']); ?></p>
+                                <p>Resolved on: <?php echo date('Y-m-d H:i', strtotime($request['updated_at'])); ?></p>
+                            <?php else: ?>
+                                <p>Status: <span class="status-pending">Pending</span></p>
+                                <form method="POST" class="mark-resolved-form">
+                                    <input type="hidden" name="request_id" value="<?php echo $request['id']; ?>">
+                                    <button type="submit" name="mark_resolved" class="resolve-btn">
+                                        <i class="fas fa-check"></i> Mark as Resolved
+                                    </button>
+                                </form>
+                            <?php endif; ?>
                         </div>
                     <?php endforeach; ?>
                 <?php endif; ?>
