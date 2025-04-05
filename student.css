@@ -285,3 +285,13 @@ footer .social-icons a:hover {
       font-size: 20px;
   }
 }
+
+.success-message {
+  background-color: #dff0d8;
+  color: #3c763d;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 4px;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}

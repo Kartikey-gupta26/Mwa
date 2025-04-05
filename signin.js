@@ -1,13 +1,22 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('signin-form');
+    
+    form.addEventListener('submit', function(event) {
+        if (!validateForm()) {
+            event.preventDefault();
+        }
+    });
+});
 
 document.getElementById('student-signin').addEventListener('click', function () {
     if (validateForm()) {
-        window.location.href = 'student.html'; // Redirect to student.html
+        window.location.href = 'student.php'; // Redirect to student.html
     }
 });
 
 document.getElementById('staff-signin').addEventListener('click', function () {
     if (validateForm()) {
-        window.location.href = 'staff.html'; // Redirect to staff.html
+        window.location.href = 'staff.php'; // Redirect to staff.html
     }
 });
 

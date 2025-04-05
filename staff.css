@@ -93,37 +93,36 @@ nav a:hover::after {
 }
 
 .request-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
-    justify-content: center;
+    padding: 20px 0;
 }
 
 .request-card {
-    background: var(--white);
-    border: 1px solid var(--gray);
-    border-radius: 10px;
+    background: white;
+    border-radius: 8px;
     padding: 20px;
-    width: 300px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s;
+    border-left: 4px solid #4CAF50;
 }
 
 .request-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .request-card h3 {
-    font-size: 24px;
+    color: #333;
     margin-bottom: 10px;
-    color: var(--royal-purple);
+    font-size: 1.2em;
 }
 
 .request-card p {
-    font-size: 16px;
-    margin: 5px 0;
-    color: var(--rich-black);
+    color: #666;
+    margin: 8px 0;
+    font-size: 0.9em;
 }
 
 .request-card label {
@@ -137,6 +136,76 @@ nav a:hover::after {
 .request-card input[type="checkbox"] {
     margin-right: 10px;
     cursor: pointer;
+}
+
+.status-pending {
+    display: inline-block;
+    padding: 4px 8px;
+    background-color: #fff3cd;
+    color: #856404;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+.complete-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.complete-btn:hover {
+    background-color: #45a049;
+}
+
+.complete-btn i {
+    font-size: 1.1em;
+}
+
+.success-message {
+    background-color: #dff0d8;
+    color: #3c763d;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 4px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.error-message {
+    background-color: #f2dede;
+    color: #a94442;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 4px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.no-requests {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    grid-column: 1 / -1;
+    padding: 40px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer */
@@ -172,4 +241,57 @@ footer .social-icons a:hover {
     .request-card {
         width: 90%;
     }
+}
+
+.logout-link {
+    color: #dc3545;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+}
+
+.logout-link:hover {
+    color: #c82333;
+}
+
+.logout-link i {
+    font-size: 1.1em;
+}
+
+.complaint-requests .request-card {
+    border-left: 4px solid #ffc107;
+}
+
+.resolve-btn {
+    background-color: #ffc107;
+    color: #000;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.resolve-btn:hover {
+    background-color: #e0a800;
+}
+
+.complaint-requests .request-card p {
+    margin: 8px 0;
+    line-height: 1.4;
+}
+
+.complaint-requests .request-card p:first-of-type {
+    margin-top: 15px;
+}
+
+.complaint-requests .request-card p:last-of-type {
+    margin-bottom: 15px;
 }
